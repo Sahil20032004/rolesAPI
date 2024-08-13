@@ -1,6 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const usersRouter = require('./routes/users');
+const adminsRouter = require('./routes/admins');
+const managersRouter = require('./routes/managers');
 
 dotenv.config();
 
@@ -17,9 +20,9 @@ db = mongoose.connect(process.env.MONGO_URI)
 
 
 // Routes
-app.use('/api/users', require('./routes/users'));
-app.use('/api/admins', require('./routes/admins'));
-app.use('/api/managers', require('./routes/managers'));
+app.use('/api/users', usersRouter);
+app.use('/api/admins', adminsRouter);
+app.use('/api/managers', managersRouter);
 
 app.get('/', (req, res) => {
     res.send("GET Request Called")
