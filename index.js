@@ -18,8 +18,8 @@ db = mongoose.connect(process.env.MONGO_URI)
 
 // Routes
 app.use('/api/users', require('./routes/users'));
-/*app.use('/api/admins', require('./routes/admins'));
-app.use('/api/managers', require('./routes/managers'));*/
+app.use('/api/admins', require('./routes/admins'));
+app.use('/api/managers', require('./routes/managers'));
 
 app.get('/', (req, res) => {
     res.send("GET Request Called")
